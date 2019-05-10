@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT5</title>
+</head>
+<body>
+<script>
+    let name=prompt("Nhập vào đây tên của một ngôi sao:");
+    let arr1=["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let arr2=["UrsaMinor", "Tarurus", "Cygnus", "Lyra", "Aquila", "UrsaMajor", "Leo"];
+
+    function check(ngoisao) {
+        for(let i=0; i<arr1.length; i++){
+            if(ngoisao == arr1[i]) return arr2[i];
+        }
+        return "not found"
+    }
+
+    let check1= check(name);
+
+    console.log(check1);
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT9</title>
+</head>
+<body>
+<script>
+    let arr=[12,71,28,"c","a","b",83,"c",83,12,12,12,12,];
+    function check(x) {
+        let count=0;
+        for(let i=0; i<arr.length; i++){
+            if(x == arr[i]){
+                count++;
+            }
+        }
+        if (count > 0) {
+           return "Kí tự này có trong mảng"+ count;
+        }
+        return -1;
+    }
+    let a=prompt("Nhập vào đây một ký tự:");
+    console.log(check(a));
+</script>
+</body>
+</html>

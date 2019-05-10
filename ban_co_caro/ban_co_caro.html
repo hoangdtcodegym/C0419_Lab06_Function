@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Cờ Caro</title>
+</head>
+<body>
+<script>
+    let rowNumber = Number(prompt("Nhap so hang cua ban co Caro: "));
+    let columnNumber = Number(prompt("Nhap so bot cua ban co Caro: "));
+    let count = 0, id1, id2;
+    let arr = []; // Tạo 1 mảng 2 chiều để lưu giá trị x,o
+    for (i = 0; i < rowNumber; i++) {
+        arr[i] = [];
+        for (j = 0; j < columnNumber; j++) {
+            arr[i][j] = "";
+        }
+    }
+    let idtext = ["", ""];
+
+    function rowDefine(x, y) { // Hàm tạo định dạng của các ô trong 1 hàng
+        //Ô trong <table> cần có dạng <td>i * x= ...</td>, biến x đại diện cho hàng, colunm đại diện cho số cột
+        result2 = "";//Khởi tạo kết quả của hàm
+        for (i = 0; i < y; i++) {
+            idtext = [String(x), String(i)];
+            result2 += "<td class='cell' onclick= 'elementChange(this.id)' id='" + idtext + "'></td>";
+        }
+        return result2;
+    }
+
+    function tableDefine(x) { //Hàm tạo định dạng của các hàng trong bảng
+        result3 = "";// Khởi tạo biến kết quả với hàng tiêu đề
+        for (j = 0; j < x; j++) {
+            result3 += "<tr>" + rowDefine(j, columnNumber) + " </tr>";
+        }
+        return result3;
+    }
+
+    let tableCss = '<table border="1" cellspacing="0"><caption><h1>GAME CỜ CARO</h1></caption>';
+    document.write(tableCss + tableDefine(rowNumber) + "</table>");
+
+    function elementChange(id) { //Tra gia tri x,o cho o
+        let zValue;
+        if (count % 2 === 0) zValue = "X";
+        else zValue = "O";
+        document.getElementById(id).innerHTML = zValue;
+        document.getElementById(id).classList.add("unselectable");//CSS class cho ô đã được chọn
+        count++;
+        id1 = id.split(",")[0];
+        id2 = id.split(",")[1]; // lấy số đầu tiên trước dấu phẩy của id
+        arr[id1][id2] = zValue;
+        checkResult(arr);
+        document.getElementById(id).removeAttribute("onclick"); // Cố định giá trị của ô, không cho phép ấn
+
+    }
+
+    function checkResult(arr) {
+        for (i = 4; i < rowNumber; i++) {
+            for (j = 0; j < columnNumber; j++) {
+                if (check5value(arr[i][j], arr[i - 1][j], arr[i - 2][j], arr[i - 3][j], arr[i - 4][j])) {
+                    console.log(i + "," + j);
+                    // document.getElementById(i + "," + j).classList.add("winning");
+                    showWinning(i, j);
+                    showWinning(i - 1, j);
+                    showWinning(i - 2, j);
+                    showWinning(i - 3, j);
+                    showWinning(i - 4, j);
+                    alert(arr[i][j] + " đã thắng!!!");
+                    for (t = 0; t < 1000; t++) {
+                        document.getElementsByClassName("cell")[t].removeAttribute("onclick");
+                    }
+                    break;
+                }
+            }
+        }
+        for (i = 0; i < rowNumber; i++) {
+            for (j = 4; j < columnNumber; j++) {
+                if (check5value(arr[i][j], arr[i][j - 1], arr[i][j - 2], arr[i][j - 3], arr[i][j - 4])) {
+                    document.getElementById(i + "," + (j - 1)).classList.add("winning");
+                    showWinning(i, j);
+                    showWinning(i, j - 2);
+                    showWinning(i, j - 3);
+                    showWinning(i, j - 4);
+                    alert(arr[i][j] + " đã thắng!!!");
+                    for (t = 0; t < 1000; t++) {
+                        document.getElementsByClassName("cell")[t].removeAttribute("onclick");
+                    }
+
+                    break;
+                }
+            }
+        }
+        for (i = 4; i < rowNumber; i++) {
+            for (j = 4; j < columnNumber; j++) {
+                if (check5value(arr[i][j], arr[i - 1][j - 1], arr[i - 2][j - 2], arr[i - 3][j - 3], arr[i - 4][j - 4])) {
+                    showWinning(i, j);
+                    showWinning(i - 1, j - 1);
+                    showWinning(i - 2, j - 2);
+                    showWinning(i - 3, j - 3);
+                    showWinning(i - 4, j - 4);
+                    alert(arr[i][j] + " đã thắng!!!");
+                    for (t = 0; t < 1000; t++) {
+                        document.getElementsByClassName("cell")[t].removeAttribute("onclick");
+                    }
+
+                    break;
+                }
+            }
+        }
+        for (i = 4; i < rowNumber; i++) {
+            for (j = 0; j < columnNumber; j++) {
+                if (check5value(arr[i][j], arr[i - 1][j + 1], arr[i - 2][j + 2], arr[i - 3][j + 3], arr[i - 4][j + 4])) {
+                    showWinning(i, j);
+                    showWinning(i - 1, j + 1);
+                    showWinning(i - 2, j + 2);
+                    showWinning(i - 3, j + 3);
+                    showWinning(i - 4, j + 4);
+                    alert(arr[i][j] + " đã thắng!!!");
+                    for (t = 0; t < 1000; t++) {
+                        document.getElementsByClassName("cell")[t].removeAttribute("onclick");
+                    }
+
+                    break;
+                }
+            }
+        }
+    }
+
+    function check5value(x0, x1, x2, x3, x4) { // Hàm này kiểm tra 5 số đầu vào có giá trị bằng nhau hay không
+        if ((x0) && (x0 === x1) && (x0 === x2) && (x0 === x3) && (x0 === x4)) return 1;
+        else return 0;
+    }
+
+    function showWinning(id1, id2) {
+        return (document.getElementById(id1 + "," + id2).classList.add("winning"));
+    }
+</script>
+<style>
+    td {
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    .unselectable {
+        background-color: #ddd;
+        cursor: not-allowed;
+    }
+
+    .winning {
+        background-color: red;
+        color: white;
+    }
+</style>
+</body>
+</html>

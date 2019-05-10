@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 5</title>
+</head>
+<body>
+<script>
+    let nameStar=['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe','Regulus'];
+    let nameConstellation=['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+    function findStar(namestar,nameStar,nameConstellation) {
+        let a= false;
+        for (let i=0;i<nameStar.length;i++){
+            if (namestar==nameStar[i]){
+                document.write('Constellation of ' + nameStar[i] +' is ' +  nameConstellation[i] )
+                a=true
+            }
+        }
+        if (a==false){
+            document.write('Not Constellation');
+        }
+    }
+let namestar=prompt('Nhap ten ngoi sao:');
+    findStar(namestar,nameStar,nameConstellation);
+</script>
+</body>
+</html>

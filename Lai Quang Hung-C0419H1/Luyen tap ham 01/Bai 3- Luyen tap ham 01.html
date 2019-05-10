@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>
+    <span>Number one</span>    <input type="number" id="Numberone"><br>
+    <span>Number two</span> <input type="number" id="Numbertwo">
+    <input type="button" onclick="Check()" value="Check">
+    <hr/>
+    <p id="result"></p>
+<script>
+    function checkNumber(a,b) {
+       if (a<=b){
+           document.getElementById('result').innerHTML= "Tong cua 2 so la: " + (a + b);
+       }else {
+           alert(a+' lon hon');
+       }
+    }
+    function Check() {
+        let a=parseFloat(document.getElementById('Numberone').value);
+        let b=parseFloat(document.getElementById('Numbertwo').value);
+        checkNumber(a,b);
+    }
+</script>
+</body>
+</html>

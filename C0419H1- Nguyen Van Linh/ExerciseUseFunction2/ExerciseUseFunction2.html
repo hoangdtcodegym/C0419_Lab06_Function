@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise Create and Use Function 02</title>
+</head>
+<body>
+<h3>Bài 1: Viết hàm tính bình phương của một số bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.</h3>
+<input type="text" id="inputNumber1" oninput="squareNum(this.value)"><span> Square is : </span>
+<input type="text" id="result1">
+
+<script>
+    function squareNumber(number) {
+        if (number >= 0 || number < 0) {
+            document.getElementById("result1").value = number * number;
+        } else {
+            document.getElementById("result1").value = "Input number";
+        }
+    }
+
+    function squareNum() {
+        let inputnumber = parseFloat(document.getElementById("inputNumber1").value);
+        squareNumber(inputnumber);
+    }
+</script>
+
+<h3>Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được</h3>
+<input type="text" id="inputNumberx" oninput="squareNum(this.value)" placeholder="Input radius">
+
+<span> S is (dien tich): </span><input type="text" id="results">
+<span> C is (Chu vi): </span><input type="text" id="resultr">
+<script>
+    //Function tinh dien tich hinh tron : r*r*3.14
+    function sAcreage(radius) {
+        return radius * radius * 3.14;
+    }
+
+    //Function tinh Chu vi hinh tron: r*2*3.14
+    function rCircuit(radius) {
+        return radius * 2 * 3.14;
+    }
+
+    function squareNum() {
+        let inputRadius = parseFloat(document.getElementById("inputNumberx").value);
+
+        if (inputRadius > 0) {
+            let results = sAcreage(inputRadius);
+            document.getElementById("results").value = results;
+            let resultr = rCircuit(inputRadius);
+            document.getElementById("resultr").value = resultr;
+        } else {
+            document.getElementById("results").value = "";
+            document.getElementById("resultr").value = "";
+        }
+    }
+
+</script>
+<h3>Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng
+    không. Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1. </h3>
+<script>
+    let inputString = prompt("Nhap vao mang cach nhau boi dau phay ','");
+    let inputtxt = prompt("");
+</script>
+</body>
+</html>

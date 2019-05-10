@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 9</title>
+</head>
+<body>
+<script>
+    let stringInput=prompt(" Nhập mảng(các phần tử cách nhau bởi dấu phẩy): ");
+    let stringsearch=prompt("Nhập từ cần tìm: ");
+    let newArray= inputArray(stringInput);
+    console.log(newArray)
+    alert(stringSearch(stringsearch,newArray));
+    function inputArray(stringInput){
+        return stringInput.split(",");
+    }
+    function stringSearch(string,array){
+        let count=0;
+        for(i=0;i<array.length;i++){
+            if(string==array[i]) count++;
+        }
+        if(count>0) return count;
+        if(count=0) return -1;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tạo và sử dụng hàm 01</title>
+</head>
+<body>
+    <h1>Bài 1</h1>
+    <p>Hiển thị hộp thoại chứa chuỗi "Xin chao"</p>
+    <input type="button" value="Xin chao" onclick="alertMessage()">
+
+    <h1>Bài 2</h1>
+    <p>Tăng giá trị đối số đó lên 1</p>
+    <input id="input2" type="number" placeholder="Nhập vào một số"/>
+    <button type="button" onclick="bai2()">Tăng giá trị lên 1</button><br>
+    <label id="result2"></label>
+
+    <h1>Bài 3</h1>
+    <p>Nhập vào 2 số, nếu số thứ nhất lớn hơn số thứ hai hiển thị thông báo. Nếu nhỏ hơn trả về tổng của hai số</p>
+    <input id="input31" type="number" placeholder="Nhập vào số thứ nhất"/>
+    <input id="input32" type="number" placeholder="Nhập vào số thứ hai"/>
+    <button type="button" onclick="bai3()">Tính toán</button><br>
+    <label id="result3"></label>
+
+    <h1>Bài 5</h1>
+    <p>Tìm chòm sao tương ứng với tên ngôi sao nhập vào. Nếu không tìm thấy chòm sao nào hiển thị không thấy</p>
+    <input id="input5" type="text" placeholder="Nhập vào tên ngôi sao">
+    <button type="button" onclick="bai5()">Tìm ngôi sao</button><br>
+    <label id="result5"></label>
+
+    <script>
+        // Bài 1
+        function alertMessage() {
+            alert("Xin chao");
+        }
+
+        // Bài 2
+        function bai2() {
+            let input2 = Number(document.getElementById("input2").value);
+            document.getElementById("result2").innerHTML = "Result: " + (input2 + 1);
+        }
+
+        // Bài 3
+        function bai3() {
+            let input31 = Number(document.getElementById("input31").value);
+            let input32 = Number(document.getElementById("input32").value);
+            if (input31 > input32) {
+                alert("Số thứ nhất lớn hơn số thứ hai");
+            }
+            else {
+                document.getElementById("result3").innerHTML = "Tổng là: " + (input31 + input32);
+            }
+        }
+
+        // Bài 4: Hiển thị 2 giá trị result trước và sau khi thực hiện gán hàm.
+        function addNumbers() {
+            firstNum = 4;
+            secondNum = 8;
+            result = firstNum + secondNum;
+            return result;
+        }
+        result = 0;
+        console.log("Giá trị trước của result là: " + result);
+        result = addNumbers();
+        console.log("Giá trị sau khi thực hiện hàm của result là: " + result);
+
+        // Bài 5
+        function bai5() {
+            let name = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+            let names = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+            let input5 = document.getElementById("input5").value;
+            for (let i = 0; i < name.length; i++) {
+                if (name[i] == input5) {
+                    document.getElementById("result5").innerHTML = "Tên chòm sao là: " + names[i];
+                    return;
+                }
+                else {
+                    document.getElementById("result5").innerHTML = "Không tìm thấy ngôi sao nào";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

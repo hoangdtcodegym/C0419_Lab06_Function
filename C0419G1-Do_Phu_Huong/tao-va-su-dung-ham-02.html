@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tạo vào sử dụng hàm 02</title>
+</head>
+<body>
+    <h1>Bài 1</h1>
+    <p>Tính bình phương của số bất kỳ</p>
+    <input id="input1" type="number" placeholder="Nhập vào một số"/>
+    <button type="button" onclick="bai1()">Tính bình phương</button>
+    <br>
+    <label id="result1"></label>
+
+    <h1>Bài 2</h1>
+    <p>Tính diện tích, chu vi hình tròn</p>
+    <input id="input2" type="number" placeholder="Nhập vào đường kính"/>
+    <button type="button" onclick="bai21()">Tính chu vi</button>
+    <button type="button" onclick="bai22()">Tính diện tích</button>
+    <br>
+    <label id="result21"></label>
+    <br>
+    <label id="result22"></label>
+
+    <h1>Bài 3</h1>
+    <p>Tính giai thừa của số nguyên dương</p>
+    <input id="input3" type="number" placeholder="Nhập vào số nguyên dương"/>
+    <button type="button" onclick="bai3()">Tính giai thừa</button>
+    <br>
+    <label id="result3"></label>
+
+    <h1>Bài 4</h1>
+    <p>Kiểm tra xem ký tự nhập vào có phải là ký tự số không?</p>
+    <input id="input4" type="text" />
+    <button type="button" onclick="bai4()">Kiểm tra</button>
+    <br>
+    <label id="result4"></label>
+
+    <h1>Bài 5</h1>
+    <p>Nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.</p>
+    <input id="input51" type="number" placeholder="Nhập số nguyên"/>
+    <input id="input52" type="number" placeholder="Nhập số nguyên"/>
+    <input id="input53" type="number" placeholder="Nhập số nguyên"/>
+    <button type="button" onclick="bai5()">Kiểm tra</button>
+    <br>
+    <label id="result5"></label>
+
+    <h1>Bài 6</h1>
+    <p>Kiểm tra xem số đưa vào có phải là nguyên dương không.</p>
+    <input id="input6" type="number" />
+    <button type="button" onclick="bai6()">Kiểm tra</button>
+    <br>
+    <label id="result6"></label>
+
+    <h1>Bài 7</h1>
+    <p>Đổi chỗ 2 số nguyên</p>
+    <input id="input71" type="number" placeholder="Nhập số nguyên thứ nhất"/>
+    <input id="input72" type="number" placeholder="Nhập số nguyên thứ hai"/>
+    <button type="button" onclick="bai7()">Đổi chỗ</button>
+    <br>
+    <label id="result7"></label>
+
+    <h1>Bài 8</h1>
+    <p>Đảo ngược mảng số nguyên</p>
+    <input id="input8" type="number" placeholder="Nhập mảng số nguyên"/>
+    <button type="button" onclick="bai8()">Đảo ngược</button>
+    <br>
+    <label id="result8"></label>
+
+    <h1>Bài 9</h1>
+    <p>Truyền vào một mảng ký tự, và một ký tự bất kỳ, trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.</p>
+    <input id="input91" type="text" placeholder="Nhập mảng ký tự"/>
+    <input id="input92" type="text" placeholder="Nhập một ký tự bất kỳ"/>
+    <button type="button" onclick="bai9()">Tìm kiếm</button>
+    <br>
+    <label id="result9"></label>
+
+    <script>
+        // Bài 1
+        function bai1() {
+            let number = document.getElementById("input1").value;
+            document.getElementById("result1").innerHTML = "Result: " + (number * number);
+        }
+        
+        // Bài 2
+        function bai21() {
+            let input21 = document.getElementById("input2").value;
+            document.getElementById("result21").innerHTML = "Chu vi hình tròn là: " + (input21 * 3.14);
+        }
+
+        function bai22() {
+            let input22 = document.getElementById("input2").value;
+            document.getElementById("result22").innerHTML = "Diện tích hình tròn là: " + (((input22 * input22)/4) * 3.14);
+        }
+
+        // Bài 3
+        function bai3() {
+            let input3 = parseInt(document.getElementById("input3").value);
+            let total = 1;
+            if (input3 >= 0) {
+                for (let i = 1; i <= input3; i++) {
+                    total *= i;
+                    document.getElementById("result3").innerHTML = "Giai thừa của " + input3 + " là " + total;
+                }
+            }
+            else {
+                document.getElementById("result3").innerHTML = "Vui lòng nhập vào số nguyên dương";
+            }
+        }
+        
+        // Bài 4
+        function bai4() {
+            let input4 = Number(document.getElementById("input4").value);
+            let result4 = !isNaN(input4);
+            if (result4) {
+                document.getElementById("result4").innerHTML = "Đây là ký tự số";
+            } else {
+                document.getElementById("result4").innerHTML = "Không phải là số";
+            }
+            return result4;
+        }
+
+        // Bài 5
+        function bai5() {
+            let input51 = parseInt(document.getElementById("input51").value);
+            let input52 = parseInt(document.getElementById("input52").value);
+            let input53 = parseInt(document.getElementById("input53").value);
+            if (input51 < input52 && input51 < input53) {
+                document.getElementById("result5").innerHTML = "Số nhỏ nhất là: " + input51;
+            } else if (input52 < input53) {
+                document.getElementById("result5").innerHTML = "Số nhỏ nhất là: " + input52;
+            } else {
+                document.getElementById("result5").innerHTML = "Số nhỏ nhất là: " + input53;
+            }
+        }
+
+        // Bài 6
+        function bai6() {
+            let input6 = Number(document.getElementById("input6").value);
+            if (input6 >= 0) {
+                document.getElementById("result6").innerHTML = "Đây là số nguyên dương";
+                return true;
+            } else {
+                document.getElementById("result6").innerHTML = "Không phải là số nguyên dương";
+                return false;
+            }
+        }
+
+        // Bài 7
+        function bai7() {
+            let input71 = document.getElementById("input71").value;
+            let input72 = document.getElementById("input72").value;
+            document.getElementById("result7").innerHTML = input72 + input71;
+        }
+        
+        // Bài 8
+        function bai8() {
+            let input8 = document.getElementById("input8").value;
+            let result8 = input8.split("").reverse().join("");
+            document.getElementById("result8").innerHTML = "Kết quả đảo ngược: " + result8;
+        }
+        
+        // Bài 9
+        function bai9() {
+            let input91 = document.getElementById("input91").value;
+            let input92 = document.getElementById("input92").value;
+            let count = 0;
+            for (let i = 0; i < input91.length; i++) {
+                if (input91[i] == input92) {
+                    count++;
+                }
+            }
+            document.getElementById("result9").innerHTML = "Có " + count + " ký tự " + input92 + " trong mảng";
+            if (count == 0) {
+                document.getElementById("result9").innerHTML = "Không có ký tự " + input92 + " trong mảng";
+                return -1;
+            } else {
+                return count;
+            }
+        }
+    </script>
+</body>
+</html>

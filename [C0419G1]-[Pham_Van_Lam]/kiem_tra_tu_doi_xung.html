@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra tu doi xung</title>
+</head>
+<body>
+<script>
+    let stringInput = prompt("Nhập vào từ cần kiểm tra: ");
+    let arrInput = stringInput.split("");
+    let result = isPalindrome(arrInput);
+    document.write(result);
+
+    function isPalindrome(arr) {
+        console.log(arr.length);
+        if (arr.length === 0) {
+            return 1;
+
+        } else if (arr[0] === arr[arr.length - 1]) {
+            arr.pop();
+            arr.shift();
+            return isPalindrome(arr);
+        } else
+            return 0;
+    }
+</script>
+</body>
+</html>

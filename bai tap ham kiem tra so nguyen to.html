@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="nhap">
+<button onclick="tim()">tim</button>
+<p id="hienthi"></p>
+<script>
+
+
+    function SNT(a) {
+        if(a>1){
+            for (let i=2; i<a;i++){
+                if(a%i==0) {
+                    return 1;
+                }
+            }return 2;
+        }
+    }
+function tim() {
+    let A= parseFloat(document.getElementById("nhap").value);
+        SNT(A);
+    if(SNT(A)==2){
+        alert("so "+A+" la so nguyen to");
+    }else{
+        alert("so "+A+" khong la so nguyen to");
+    }
+}
+</script>
+</body>
+</html>

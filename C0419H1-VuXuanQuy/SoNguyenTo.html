@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <title>Order Fruit</title>
+</head>
+<body>
+<script type="text/javascript">
+  function kiemtra(number) {
+    if (number > 1) {
+      for (let i = 2; i < number; i++) {
+        if (number % i == 0) {
+          return false;
+        }
+      }
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  let nhap = parseInt(prompt("nhap so: "));
+  if (kiemtra(nhap)) {
+    alert(nhap + " la so nguyen to");
+  } else {
+    alert("ko phai so nguyen to");
+  }
+
+</script>
+</body>
+</html>

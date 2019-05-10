@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bai3</title>
+</head>
+<body>
+<pan>number 1</pan>
+<input type="number" id="so1">
+<br>
+<span>number 2</span>
+<input type="number" id="so2">
+<button onclick="minMax()">onClick</button>
+<script>
+  function minMax() {
+    let b2 = parseFloat(document.getElementById("so2").value);
+    let a1 = parseFloat(document.getElementById("so1").value);
+    if (a1 > b2) {
+      alert(a1 + " Max");
+    } else {
+      let sum = a1 + b2;
+      alert("Sum: " + sum);
+    }
+  }
+</script>
+</body>
+</html>

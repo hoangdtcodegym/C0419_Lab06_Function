@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body onload="findConstellation(prompt('Enter your star'))" >
+
+<script>
+    function findConstellation(star) {
+        let listStar=['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe','Regulus'];
+        let Constellation=['Ursa', 'Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa', 'Major', 'Leo'];
+        let result=false;
+        let cons;
+        for (let i=0;i<listStar.length;i++) {
+            if (listStar[i]==star) {
+                result=true;
+                cons=Constellation[i];
+                break;
+            }
+        }
+        if (result) alert('Constellation of star is ' +cons);
+         else   alert('Not found');
+    }
+
+</script>
+</body>
+</html>

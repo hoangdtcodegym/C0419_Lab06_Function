@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai5</title>
+</head>
+<body>
+<button id="1" type="button" onclick="kiemTra()">Bam vao day</button>
+<script>
+    let ngoiSao = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair","Dubhe Regulus"];
+    let chomSao = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    function kiemTra() {
+        let nhap = prompt('Em cu dien di: ');
+        let i;
+        for (i = 0; i < ngoiSao.length; i++) {
+           if(nhap == ngoiSao[i]){
+               return chomSao[i];
+           }
+        }
+        // x = 'ko tim thay ngoi sao';
+        //  return x;
+    }
+
+    let i= kiemTra();
+    alert(i);
+
+</script>
+</body>
+</html>

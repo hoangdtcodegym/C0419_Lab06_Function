@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <h2>Add New Product</h2>
+    <input type="text" id="newProduct" placeholder="Enter a new product" />
+    <input type="button" id="add" onclick="addNewProduct()" value="Add" />
+</div>
+<div>
+    <h2>Display All Product</h2>
+    <p id="productTable"></p>
+</div>
+<script>
+    let productList=['Sony Xperia', 'Samsung Galaxy',
+        'Nokia 6', 'Xiaomi Redmi Note 4', 'Apple iPhone 6S',
+        'Xiaomi Mi 5s Plus', 'Apple iPhone 8 Plus', 'Fujitsu F-04E',
+        'Oppo A71'];
+    showProductList();
+    //ham hien thi danh sach sp
+    function showProductList() {
+        let data='<table>';
+        for (let i=0;i<productList.length;i++) {
+            data+='<tr>'+'<td>'+productList[i]+'</td>';
+            data+='<td>'+'<input type="button" class="edit" id=' + i + ' value="Edit" onclick="editProduct(this.id)"/>' +'</td>';
+            data+='<td>'+'<input type="button" class="delete" id=' + i + ' value="Delete" onclick="deleteProduct(this.id)"/>' +'</td>';
+            data+='</tr>';
+        }
+        data+='</table>';
+        document.getElementById('productTable').innerHTML=data;
+    }
+    //ham them 1 sp
+    function addNewProduct() {
+        let newPro=document.getElementById('newProduct').value;
+        if (newPro != '') productList.push(newPro);
+        showProductList();
+        document.getElementById('newProduct').value='';
+    }
+    //ham sua ten 1sp
+    function editProduct(IDPro) {
+        let newNamePro=prompt('Enter new name:');
+        for (let i=0;i<productList.length;i++) {
+            if (IDPro==i) {
+                productList[i]=newNamePro;
+            }
+        }
+        showProductList();
+    }
+    //ham xoa 1 sp
+    function deleteProduct(IDPro) {
+        for (let i=0;i<productList.length;i++) {
+            if (IDPro==i) {
+                if (i==productList.length-1) {
+                    productList.length=productList.length-1;
+                } else {
+                    productList[i]=productList[i+1];
+                    productList.length=productList.length-1;
+                }
+            }
+        }
+        showProductList();
+    }
+
+</script>
+</body>
+</html>

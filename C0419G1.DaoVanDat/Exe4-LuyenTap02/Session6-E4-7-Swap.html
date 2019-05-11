@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body onload="swap(Number(prompt('Enter number 1')),Number(prompt('Enter number 2')))" >
+
+<script>
+    function swap(num1,num2) {
+        let temp=num1;
+        num1=num2;
+        num2=temp;
+        alert('Number 1 is '+num1+'. Number 2 is '+num2);
+    }
+
+
+</script>
+</body>
+</html>

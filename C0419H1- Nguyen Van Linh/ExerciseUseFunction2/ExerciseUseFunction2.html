@@ -6,7 +6,8 @@
 </head>
 <body>
 <h3>Bài 1: Viết hàm tính bình phương của một số bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.</h3>
-<input type="text" id="inputNumber1" oninput="squareNum(this.value)"><span> Square is : </span>
+<input type="text" id="inputNumber1" oninput="squareNum(this.value)"
+       placeholder="Input Number"><span> Square is : </span>
 <input type="text" id="result1">
 
 <script>
@@ -25,7 +26,7 @@
 </script>
 
 <h3>Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được</h3>
-<input type="text" id="inputNumberx" oninput="squareNum(this.value)" placeholder="Input radius">
+<input type="text" id="inputNumberx" oninput="inputRadius(this.value)" placeholder="Input radius">
 
 <span> S is (dien tich): </span><input type="text" id="results">
 <span> C is (Chu vi): </span><input type="text" id="resultr">
@@ -40,7 +41,7 @@
         return radius * 2 * 3.14;
     }
 
-    function squareNum() {
+    function inputRadius() {
         let inputRadius = parseFloat(document.getElementById("inputNumberx").value);
 
         if (inputRadius > 0) {
@@ -55,11 +56,161 @@
     }
 
 </script>
+<h3>Bài 3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.</h3>
+<input type="button" value="Tinh Giai Thua" onclick="inputGiaiThua()">
+<script>
+    function tinhGiaiThua(number3) {
+        let giaiThua = 1;
+        for (let i = 1; i <= number3; i++) {
+            giaiThua = giaiThua * i;
+        }
+        return giaiThua;
+    }
+
+    function inputGiaiThua() {
+        let inputGT = (parseInt(prompt("Nhap so can tinh:")))
+        let giaithua = tinhGiaiThua(inputGT);
+        alert("Giai thua cua " + inputGT + " la: " + giaithua);
+    }
+</script>
+
+<h3>Bài 4: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. Nếu là ký tự số hàm trả về true, ngược lại
+    trả về false.</h3>
+<input type="button" value="Check Type of Number" onclick="inputCheckValue()">
+<script>
+    function checkValueof(inputData) {
+        if (typeof inputData == "number") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function inputCheckValue() {
+        let inputData = prompt("Moi nhap tu ban phim");
+
+        if (checkValueof(inputData)) {
+            alert("You just typed Number");
+        } else {
+            alert("You just typed not Number");
+        }
+    }
+</script>
+
+<h3>Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.</h3>
+<input type="button" value="Check Min Number" onclick="inputArrMin()">
+<script>
+    function checkArrMin(arrMin) {
+        let minNumber = arrMin[0];
+
+        for (let i = 0; i < arrMin.length; i++) {
+            if (minNumber > arrMin[i]) {
+                minNumber = arrMin[i];
+                console.log(minNumber);
+            }
+        }
+        return minNumber;
+    }
+
+    function inputArrMin() {
+        let inputNumString = prompt("Nhap cac so cach nhau boi dau ,");
+        let arrMin = inputArray(inputNumString);
+        console.log(arrMin);
+        let result = checkArrMin(arrMin);
+        alert("Min Value is: " + result);
+    }
+
+    function inputArray(stringInput) {
+        return stringInput.split(",");
+    }
+</script>
+
+<h3>Bài 6: Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không. Nếu là nguyên dương trả
+    về true, ngược lại trả về false.</h3>
+<input type="button" value="Check integer" onclick="inputInt()">
+<script>
+    function checkInt(numInt) {
+        if (numInt > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    function inputInt() {
+        let inputInt = parseInt(prompt("Input Number check:"));
+        let result = checkInt(inputInt);
+        if (result) {
+            alert(inputInt + ": là số nguyên dương");
+        } else {
+            alert(inputInt + ": là số nguyên âm");
+        }
+
+    }
+</script>
+<h3>Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.</h3>
+
+<input type="button" value="Đổi chỗ 2 số nguyên" onclick="doiCho()">
+<script>
+    function actionDoiCho(num1, num2) {
+        let temp = num1;
+        num1 = num2;
+        num2 = temp;
+        alert(num1 + " " + num2);
+    }
+
+    function doiCho() {
+        let num1 = prompt("Input Number 1:");
+        let num2 = prompt("Input Number 2:");
+        actionDoiCho(num1, num2);
+    }
+
+</script>
+<h3>Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó.</h3>
+
+<input type="button" value="Đảo ngược phần tử trong mảng" onclick="inputReverseArray()">
+<script>
+    function inputReverseArray() {
+        let inputNumString = prompt("Nhap cac so cach nhau boi dau ,");
+        let reverseArr = inputArray(inputNumString);//inputArray(inputNumString) Sử dụng lại hàm từ bài tập 5: Chèn chuỗi vào trong mảng sử dung hàm split()
+        reverseArray(reverseArr);
+    }
+    function reverseArray(reverseArr) {
+        let n = reverseArr.length-1;
+        let temp;
+        for ( let i = 0; i<=n; i++){
+            temp = reverseArr[i];
+            reverseArr[i] = reverseArr[n];
+            reverseArr[n] = temp;
+            n--;
+        }
+        alert("Array after be reversed: " + reverseArr)
+    }
+</script>
+
 <h3>Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng
     không. Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1. </h3>
+<input type="button" value="Kiểm tra số lần lặp khi nhập dữ liệu" onclick="inputArrRepeat()">
+
 <script>
-    let inputString = prompt("Nhap vao mang cach nhau boi dau phay ','");
-    let inputtxt = prompt("");
+    function checkRepeatTxt(arrRepeat, inputTxt) {
+        count = 0;
+        for (let i = 0; i < arrRepeat.length; i++){
+            if (inputTxt == arrRepeat[i]){
+                count++;
+            }else{
+                alert(inputTxt +" repeated: -1");
+                return -1;
+            }
+        }
+        alert(inputTxt +" repeated: " + count);
+    }
+    function inputArrRepeat() {
+        let inputString = prompt("Nhap vao mang cac ky tu cach nhau boi dau phay ','");
+        let inputTxt = prompt("");
+        let arrRepeat = inputArray(inputString);
+        checkRepeatTxt(arrRepeat, inputTxt);
+    }
+
 </script>
 </body>
 </html>

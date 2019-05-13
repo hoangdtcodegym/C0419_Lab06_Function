@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm đổi chỗ 2 số nguyên nhập vào</title>
+</head>
+<body>
+            <script>
+                let x = Number(prompt("Nhập vào số thứ nhất"));
+                let y = Number(prompt("Nhập vào số thứ hai"));
+                let result = switchPos(x,y);
+                // console.log(result);
+                alert(result);
+                function switchPos(a, b) {
+                    arr = [];
+                    arr.push(a);
+                    arr.push(b);
+                    return arr.reverse();
+                }
+            </script>
+</body>
+</html>

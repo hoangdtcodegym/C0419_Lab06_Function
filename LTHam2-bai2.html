@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm tính diện tích , chu vi hình tròn</title>
+</head>
+<style>
+    .nd {
+        text-align: center;
+    }
+</style>
+
+<div class="nd">
+<p>Nhập vào bán kính hình tròn cần tính</p>
+<input type="number" id="input" placeholder="r=">
+<br><br><br>
+<input type="button" value="Calculate" onclick="calculate();">
+<br><br><br>
+<p>Chu vi hình tròn =</p>
+<textarea id="chuvi" cols="50" rows="3" placeholder="Chu vi hình tròn ="></textarea>
+<p>Diện tích hình tròn =</p>
+<textarea id="dientich" cols="50" rows="3" placeholder="Diện tích hình tròn ="></textarea>
+</div>
+
+<body>
+
+            <script>
+                function calculate() {
+                    let x = document.getElementById("input").value;
+                    let chuvi = tinhchuvi(x);
+                    let dientich = tinhdientich(x);
+                    document.getElementById("chuvi").innerHTML = chuvi + " Đơn vị tính";
+                    document.getElementById("dientich").innerHTML = dientich + " Đơn vị diện tích";
+                }
+                function tinhchuvi(r) {
+                    cv = parseFloat(r*2*Math.PI);
+                    return cv;
+                }
+                function tinhdientich(r) {
+                    dt = parseFloat(r*r*Math.PI);
+                    return dt;
+                }
+            </script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm đảo ngược mảng số nguyên bất kỳ</title>
+</head>
+<style>
+    .nd {
+        text-align: center;
+    }
+    p {
+        font-size: xx-large;
+    }
+</style>
+<div class="nd">
+    <p>Nhập vào mảng số nguyên bất kỳ </p>
+    (Lưu ý : các phần tử của mảng được ngăn cách bằng dấu ",")<br>
+    <label for="input"></label><input type="text" id="input" placeholder="[Enter an Array here!]">
+    <br><br><br>
+    <p>Nhấn f5 để nhận kết quả >.<</p>
+    <p>Mảng đảo ngược :</p>
+    <label for="output"></label><textarea placeholder="Reversed Array is displayed here!"
+                                          readonly id="output" cols="50" rows="1"></textarea>
+</div>
+<body>
+
+                <script>
+
+                    let inp = (document.getElementById("input").value).split(",");
+                    for (let i in inp) {
+                        inp[i] = Number(inp[i]);
+                    }
+                    document.getElementById("output").innerHTML = "[" + reverseElements(inp) + "]";
+                    function reverseElements(arr) {
+                        return arr.reverse();
+                    }
+
+
+                </script>
+
+</body>
+</html>

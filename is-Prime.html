@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>isPrime?</title>
+</head>
+<input type="number" placeholder="is this number Prime?" id="input"/>
+<p>is Prime ?</p>
+<input type="button" value="Execute" onclick="checkPrime();">
+<p id="check"></p>
+<body>
+            <script>
+                function checkPrime() {
+                    let x = document.getElementById("input").value;
+                    let ax = isPrime(x);
+
+                        if (ax == true) {
+                            document.getElementById("check").innerHTML = "YES";
+                        } else {
+                            document.getElementById("check").innerHTML = "NO";
+                    }
+                }
+
+                    function isPrime(numb) {
+                        for (let i=2; i < 10000; i++) {
+                            if (numb % i === 0) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+                    }
+            </script>
+</body>
+</html>

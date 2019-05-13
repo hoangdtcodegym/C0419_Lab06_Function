@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lằng nhà lằng nhằng :|</title>
+</head>
+<style>
+    .nd {
+        text-align: center;
+    }
+    p {
+        font-size: xx-large;
+    }
+</style>
+
+<div class="nd">
+    <p>Nhập vào 1 mảng gồm các ký tự</p>
+    (Lưu ý : các phần tử trong mảng được ngăn cách bằng dấu ",")<br>
+    <textarea placeholder="[Nhập mảng vào đây!]" id="input" cols="50" rows="3"></textarea>
+    <p>Nhập vào 1 (chuỗi) ký tự</p>
+    <input type="text" placeholder="Nhập ký tự vào đây!" id="input1"/>
+    <br><br><br>
+    <p>Lại nhấn f5 để lấy kết quả nhé =))</p>
+    Số lần xuất hiện của (chuỗi) ký tự trong mảng =
+    <p id="result"></p>
+</div>
+
+<body>
+            <script>
+
+                let Array = (document.getElementById("input").value).split(",");
+                console.log(Array);
+                let x =  document.getElementById("input1").value;
+                let String = x.toString();
+                console.log(String);
+                document.getElementById("result").innerHTML = countAppear(Array,String);
+
+                function countAppear(arr, str) {
+                    let count = 0;
+                    for (let i = 0; i < arr.length; i++) {
+                        if (str === arr[i]) {
+                            count++;
+                        } else {
+                            return -1;
+                        }
+                        return count;
+                    }
+                }
+
+            </script>
+</body>
+</html>

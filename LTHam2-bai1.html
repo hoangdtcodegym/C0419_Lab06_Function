@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm tính bình phương</title>
+</head>
+<style>
+    .nd {
+        text-align: center;
+    }
+</style>
+<div class="nd">
+<p>Nhập vào 1 số để tính bình phương</p>
+<input type="number" id="input"/>
+<br><br><br>
+<input type="button" value="Calculate" onclick="calculate();">
+<br><br><br>
+<textarea id="result" cols="30" rows="1"></textarea>
+</div>
+<body>
+            <script>
+                function calculate() {
+                    let ax = document.getElementById("input").value;
+                    let result = pow(ax);
+                    document.getElementById("result").innerHTML = result;
+                }
+                function pow(a) {
+                    x = a*a;
+                    return x;
+                }
+            </script>
+</body>
+</html>

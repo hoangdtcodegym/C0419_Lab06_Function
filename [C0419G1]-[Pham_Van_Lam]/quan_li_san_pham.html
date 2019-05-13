@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng quản lí sản phẩm</title>
+</head>
+<body>
+<h2>Add product:</h2>
+<input id="productInput" type="text">
+<button type="button" id="addbutton" onclick="addProduct()">Add</button>
+<h2>Display All Product</h2>
+<div id="productTable"></div>
+<div id="editDiv"></div>
+<script>
+    let productArray = []; // Mảng các sản phẩm cần hiển thị
+    let rowArray = []; // Mảng các hàng của bảng
+
+    function addProduct() { // Hàm thêm sản phẩm mới khi ấn nút Add
+        let newProduct = document.getElementById("productInput").value;
+        productArray.push(newProduct);
+        showTable(productArray);
+    }
+
+    function delProduct(id) { //Hàm xóa sản phẩm khi ấn nút Delete
+        productArray.splice(id[3], 1);
+        showTable(productArray);
+    }
+
+    function showEditProductBox(editId) { //Hàm hiển thị edit box khi ấn nút edit
+        document.getElementById("editDiv").innerHTML = "<div class='editDiv'><input id='editbox'>" + "<button type='button' onclick='editProduct()'>OK</button></div>";
+        editProductId = editId[4];
+    }
+
+    function editProduct() { // Hàm thay đổi giá trị product khi ấn nút OK của hộp editbox
+        let editValue = document.getElementById("editbox").value;
+        productArray[editProductId] = editValue;
+        showTable(productArray);
+        document.getElementById("editDiv").innerHTML = "";
+    }
+
+    function showTable(productArray) { //Hàm hiển thị bảng sản phẩm với đầu vào là 1 mảng các sản phẩm cần hiển thị
+        rowArray = [];
+        for (i = 0; i < productArray.length; i++) {
+            rowArray[i] = createRow(productArray[i], i);
+        }
+        document.getElementById("productTable").innerHTML = createTable(rowArray);
+    }
+
+    function createRow(product, productIndex) { // Hàm tạo ra định dạng 1 hàng của bảng với đầu vào là tên sản phẩm và
+        let result = "";                        // giá trị index của nó trong mảng sản phẩm
+        result += "<tr " + ">";
+        result += "<td class='product'>" + product + "</td>"
+        result += "<td class='edit'>" + "<button type='button'" + " id='edit" + productIndex + "' onclick='showEditProductBox(this.id)'>edit</button> " + "</td>";
+        result += "<td class='delete'>" + "<button type='button '" + " id= 'del" + productIndex + "' onclick='delProduct(this.id)'>delete</button> " + "</td>";
+        result += "</tr>";
+        return result;
+    }
+
+    function createTable(rowArray) {// Hàm tạo ra định dạng của bảng với đầu vào là mảng các hàng
+        let table = "";
+        table += "<table border='1' cellspacing='0'>";
+        table += createmultiRow(rowArray);
+        table += "</table>";
+        return table;
+    }
+
+    function createmultiRow(rowArrayInput) {// Tạo ra 1 chuỗi các phần tử của mảng các hàng
+        let multirow = "";
+        for (i = 0; i < rowArrayInput.length; i++) {
+            multirow += rowArrayInput[i] + "";
+
+        }
+        return multirow;
+    }
+</script>
+<style>
+    .product {
+        width: 200px;
+        height: 40px;
+    }
+
+    .edit {
+        width: 80px;
+        height: 40px;
+        text-align: center;
+    }
+
+    .delete {
+        width: 80px;
+        text-align: center;
+    }
+
+    .editDiv {
+        display: block;
+        margin: 10px;
+    }
+</style>
+</body>
+</html>

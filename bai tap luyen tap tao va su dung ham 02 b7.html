@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="nhap" placeholder="an enter de nhap" onchange="them()">
+<br>
+<p id="hienthi"></p>
+<br>
+<button onclick="doicho()">Doi cho</button>
+
+<p id="hienthi1"></p>
+<script>
+    var A = [];
+
+    function f(a) {
+           a.reverse();
+           return a;
+    }
+
+    function them() {
+        let them = parseFloat(document.getElementById("nhap").value);
+        if (A.length < 2) {
+            A.push(them);
+            document.getElementById("nhap").value="";
+        }
+        document.getElementById("hienthi").innerHTML="so vua nhap la: "+A;
+    }
+    function doicho() {
+        document.getElementById("hienthi1").innerHTML="sau khi doi cho la: "+f(A);
+    }
+</script>
+</body>
+</html>

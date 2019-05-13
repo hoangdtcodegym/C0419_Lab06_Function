@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="nhap" onchange="enter()">
+<button onclick="Tim()">Tim Min</button>
+<p id="hienthi"></p>
+<p id="hienthi1"></p>
+<script>
+    let A=[];
+    function enter() {
+        let a=parseFloat(document.getElementById("nhap").value);
+            if(A.length<3){
+                A.push(a);
+            }
+        document.getElementById("hienthi").innerHTML="phan tu cua mang la: "+A;
+        document.getElementById("nhap").value="";
+    }
+    function f(a) {
+        min=a[0];
+        for (let i=0;i<a.length;i++){
+            if(min>a[i]){
+                min=a[i];
+            }
+        }return min;
+    }
+function Tim() {
+    document.getElementById("hienthi1").innerHTML="so nho nhat la: "+f(A);
+}
+</script>
+</body>
+</html>

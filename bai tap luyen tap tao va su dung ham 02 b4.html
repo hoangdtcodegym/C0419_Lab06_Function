@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="nhap">
+<button onclick="tinh()">Kiem tra</button>
+<p id="hienthi"></p>
+<script>
+    function f(a) {
+        b=isNaN(a);
+        return b;
+    }
+    function tinh() {
+        let nhap=document.getElementById("nhap").value;
+        if (f(nhap)){
+            alert("ki tu");
+        }else{
+            alert("so nguyen");
+        }
+    }
+</script>
+</body>
+</html>

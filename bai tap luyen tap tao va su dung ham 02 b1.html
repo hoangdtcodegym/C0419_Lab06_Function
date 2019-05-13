@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Moi nhap so:
+<input type="number" id="nhap" oninput="binhphuong()">
+<p id="hienthi"></p>
+<script>
+
+    function f(a) {
+        a=a*a;
+        return a;
+    }
+    function binhphuong() {
+        let A =parseFloat(document.getElementById("nhap").value);
+        document.getElementById("hienthi").innerHTML= "binh phuong cua "+A+" la: " + f(A);
+    }
+</script>
+</body>
+</html>

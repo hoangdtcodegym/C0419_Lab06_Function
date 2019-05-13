@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Kiểm tra số nguyên tố</h3>
+<input id="nhap" type="text" value="">
+<input type="button" value="Check" onclick="prime()">
+<div></div>
+<script>
+    function checkprime(n){
+        if (n<2){
+            return false;
+        }
+        for(let N =2; N<n;N++){
+            if(n%N==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    function prime(){
+        let n = parseInt(document.getElementById('nhap').value);
+        let dem = 0;
+        let N =2;
+        while (dem<n){
+            if(checkprime(N)){
+                document.write(N + "<br>");
+                dem ++;
+            }
+            N++;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3> bai 1:</h3>
+<button onclick="alertMessage()"> click</button>
+<hr>
+<h3>bai 2:</h3>
+<input id="nhap" type="text" value="">
+<input type="button" onclick="alertMessage1()" value="click">
+<hr>
+<h3>bai 3:</h3>
+<button onclick="alert2()">click</button>
+<hr>
+<h3>bai 5:</h3>
+<button onclick="Nhap_Mang()">click</button>
+<script>
+    function  alertMessage(){
+        alert('Xin chao');
+        }
+    function sum(s) {
+        let kq = s+1;
+        return kq;
+    }
+    function alertMessage1() {
+        let A=parseInt(document.getElementById("nhap").value);
+        alert(sum(A));
+
+    }
+    function alert2() {
+        let a = parseInt(prompt('Nhap a:'));
+        let b = parseInt(prompt("Nhap b:"));
+        alert(alert3(a,b));
+    }
+    function alert3(a,b) {
+        if(a>b){
+            alert("So thu nhat lon hon so thu 2.");
+        }else {
+            let sum = a+b;
+            return sum;
+        }
+    }
+    function Nhap_Mang() {
+        let str = prompt();
+        let Mang_1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let Mang_2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        let i =0;
+        let flag = true;
+        for(;i<Mang_1.length;i++) {
+            if (str == Mang_1[i]) {
+                Mang_1[i] = Mang_2[i];
+                alert(Mang_2[i]);
+                flag = false;
+                break;
+            }
+        }
+        if(flag){
+            alert("Không tồn tại từ này");
+        }
+
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+Nhập giá trị: <input type="number" id="nhapso" oninput="ham1(this.value)"/><br/>
+Bình phương bằng = <span id="result"/>
+<script>
+    function ham1() {
+        let i = document.getElementById("nhapso").value;
+        let tong = i * i;
+        document.getElementById("result").innerHTML = tong;
+
+    }
+
+</script>
+
+</body>
+</html>

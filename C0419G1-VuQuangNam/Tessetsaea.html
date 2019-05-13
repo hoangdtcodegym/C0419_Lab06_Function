@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<b>Add new product</b>
+<br/>
+<br/>
+<input type="text" id="add"><span><input type="button" value="Add" onclick="hamAdd(this.value)"/></span>
+<br/>
+<br/>
+<b>Display All Product</b>
+<table>
+    <td>
+        <p>Product name</p>
+    </td>
+    <td>
+        <p id="soluong"></p>
+    </td>
+</table>
+<br/>
+<br/>
+<p id="hienthilistsanpham"></p>
+<div id="spoiler" >
+    <h3>Edit Product</h3>
+    <div class="container">
+        <form action="javascript:void(0);" method="POST" id="saveEdit">
+            <input type="text" id="edit-name">
+            <input type="submit" value="Edit" />
+        </form>
+    </div>
+</div>
+<script>
+    let listSanPham=[
+        "Sony Xperia","Samsung Galaxy","Nokia 6",
+        "Xiaomi Redmi Note 4","Apple iPhone 6S","Xiaomi Mi 5s Plus",
+        "Apple iPhone 8 Plus","Fujitsu F-04E","Oppo A71"
+    ];
+    khoitao();
+    function khoitao() {
+        let e="<table>";
+        for (let i = 0; i < listSanPham.length; i++) {
+            let button =
+                "<input type='button' id=" + i + " value='edit' onclick='hamEdit(this.id)'/>"
+                +
+                "<input type='button' id=" + i + " value='delete'onclick='hamDelete(this.id)'/>";
+            e += "<tr>"
+            e += "<td>" + listSanPham[i] + "</td>" + "<td>" + button + "</td>";
+            document.getElementById("hienthilistsanpham").innerHTML = e;
+        }
+        document.getElementById("soluong").innerHTML = " " + "Số lượng :" + listSanPham.length + " " + "sản phẩm";
+    }
+    function hamAdd(nhapSanPham) {
+        nhapSanPham = document.getElementById("add").value;
+        listSanPham.push(nhapSanPham);
+        khoitao();
+        document.getElementById("add").value="";
+    }
+    function hamEdit(number) {
+        let edit = document.getElementById('edit-name');
+        edit.value = listSanPham[number];
+        document.getElementById('saveEdit').onsubmit = function() {
+            let product = edit.value;
+            listSanPham.splice(number, 1, product.trim());
+            khoitao();
+        }
+    }
+    function hamDelete(number) {
+        listSanPham.splice(number,1);
+        khoitao();
+    }
+</script>
+</body>
+</html>

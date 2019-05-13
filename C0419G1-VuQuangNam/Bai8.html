@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+<input id="nhapso" type="text">
+<input type="button" onclick="add()" value="ADD">
+<input type="button" onclick="ham1()" value="In mảng">
+<input type="button" onclick="ham2()" value="In mảng ngược"><br/>
+<p id="Result"></p><br/>
+<p id="Result1"></p>
+
+</body>
+<script>
+    let mang = new Array();
+    let i = 0;
+
+    function add() {
+        let nhapso1 = document.getElementById("nhapso").value;
+        mang.push(nhapso1);
+        i++;
+        document.getElementById("nhapso").value = "";
+    }
+
+    function ham1() {
+        let e = new Array();
+        for (let i = 0; i < mang.length; i++) {
+            e.push(mang[i]);
+        }
+        document.getElementById("Result").innerHTML = "Mảng vừa được nhập " + e;
+
+    }
+
+    function ham2() {
+        let j = new Array();
+        for (let i = mang.length - 1; i >= 0; i--) {
+            j.push(mang[i]);
+        }
+        document.getElementById("Result1").innerHTML = "Mảng được đảo ngược thành " + j;
+
+    }
+
+</script>
+</html>

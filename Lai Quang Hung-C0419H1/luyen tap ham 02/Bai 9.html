@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim kiem</title>
+</head>
+<body>
+<input type="text" onchange="Add()" id="input">
+<p>Mang ky tu gom</p>
+<p id="output"></p>
+<input type="text" id="inputtxt">
+<input type="button" onclick="Search()" value="Search">
+<hr/>
+<p>Result</p>
+<p id="result"></p>
+<script>
+    function search(arr,txt){
+        let dem=0;
+        for (let i=0;i<arr.length;i++){
+            if (arr[i]==txt){
+                dem++;
+            }
+        }
+        if (dem==0){
+            document.getElementById('result').innerHTML='Ky tu ban tim kiem khong co'
+        }else {
+            document.getElementById('result').innerHTML+= 'Ky tu ' + txt + ' xuat hien ' + dem + ' lan'
+        }
+    }
+    let arr=[];
+    function Add() {
+        let txt = document.getElementById('input').value;
+        arr.push(txt);
+        document.getElementById('output').innerHTML = arr.toString();
+        document.getElementById('input').value = '';
+    }
+    function Search(){
+         let txt=document.getElementById('inputtxt').value;
+         search(arr,txt)
+    }
+</script>
+</body>
+</html>

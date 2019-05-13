@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh chu hinh tron</title>
+</head>
+<body>
+    <span>Radius</span>
+    <input type="number" id="input">
+    <input type="button" value="perimeter" onclick="perimeter()">
+    <input type="button" value="acreage" onclick="acreage()">
+    <p>Result</p>
+    <p id="result"></p>
+<script>
+    let r=parseFloat(document.getElementById('input').value);
+    function Acreage(R) {
+        acr=R*R*3.14;
+    return acr
+    }
+    function Perimeter(R) {
+        Per=2*R*3.14;
+        return Per;
+    }
+    function perimeter() {
+        let r=parseFloat(document.getElementById('input').value);
+        let Peri=Perimeter(r);
+        document.getElementById('result').innerHTML=Peri;
+    }
+    function acreage() {
+        let r=parseFloat(document.getElementById('input').value);
+        let Acre=Acreage(r)
+        document.getElementById('result').innerHTML=Acre;
+    }
+</script>
+</body>
+</html>

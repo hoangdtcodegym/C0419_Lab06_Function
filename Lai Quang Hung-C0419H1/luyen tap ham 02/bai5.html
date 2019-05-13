@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim min</title>
+</head>
+<body>
+    <input type="number" onchange="Add()" id="input">
+    <p>3 numer is</p>
+    <p id="output"></p>
+    <hr/>
+    <p>Min is</p>
+    <p id="result"></p>
+<script>
+    function isMin(arr) {
+        let min=arr[0];
+        for (let i=0;i<arr.length;i++){
+            if (parseFloat(arr[i]) < min){
+                min=parseFloat(arr[i]);
+            }
+        }
+        return min
+    }
+    let arr=[];
+    function Add() {
+        if (arr.length<3){
+            let num=document.getElementById('input').value;
+            arr.push(num)
+        }
+        document.getElementById('output').innerHTML=arr.toString();
+        document.getElementById('input').value='';
+        document.getElementById('result').innerHTML= isMin(arr)
+    }
+</script>
+</body>
+</html>

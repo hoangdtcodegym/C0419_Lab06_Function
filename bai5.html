@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="main()">
+<script>
+    function nhap(x, y, z) {
+        x = parseInt(prompt("nhập vào số thứ nhất"));
+        y = parseInt(prompt(" nhập vào số thứ 2"));
+        z = parseInt(prompt(" nhập vào số thứ 3"));
+        let mang = [];
+        mang[0] = x;
+        mang[1] = y;
+        mang[2] = z;
+        console.log(mang);
+        return mang;
+
+    }
+
+    function TimMin(mang) {
+        let min = mang[1];
+        for (i = 0; i <= 2; i++) {
+            if (mang[i] < min) {
+                min = mang[i];
+            }
+        }
+        return min;
+    }
+
+    function xuat(x) {
+        alert(x);
+    }
+
+    function main() {
+        let mang = nhap();
+        let x = TimMin(mang);
+        xuat(x);
+    }
+</script>
+</body>
+</html>

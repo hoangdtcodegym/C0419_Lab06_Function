@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyển đổi từ độ F qua độ C</title>
+</head>
+<body>
+<form>
+    <label> Do F:</label>
+    <input id="nhapgt" type="number" oninput="ham(this.value)"/>
+<!--    //Hiển thị ô input nhập giá trị-->
+<!--    // oninput kích hoạt khi người dùng thay đổi giá trị(thực hiện ngay thuật toán)-->
+    <p>Độ C: <span id="kq"></span></p>
+<!--    //In kết quả-->
+</form>
+<script>
+    function ham() {
+        let i = document.getElementById("nhapgt").value;
+        // lấy gt được nhập
+        document.getElementById("kq").innerHTML = (i - 32) / 1.8;
+        // giá trị kết quả
+    }
+</script>
+</body>
+</html>

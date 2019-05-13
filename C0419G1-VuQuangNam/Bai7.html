@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+Kết quả trước khi đổi: <span id="truocdoi"></span><br/>
+Kết quả sau khi đổi: <span id="saudoi"></span>
+<script>
+    let nhapso = prompt("Nhập giá trị 1:");
+    let nhapso1 = prompt("Nhập giá trị 2:");
+
+    function hamdoi(a, b) {
+        let c = a;
+        a = b;
+        b = c;
+        return a + "--------" + b;
+
+    }
+
+    let d = hamdoi(nhapso, nhapso1);
+
+    document.getElementById("truocdoi").innerHTML = nhapso + "--------" + nhapso1;
+    document.getElementById("saudoi").innerHTML = d;
+</script>
+</body>
+</html>

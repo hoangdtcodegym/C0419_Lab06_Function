@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính đối xứng</title>
+</head>
+<body>
+<script>
+    let nhapchuoi = prompt("Nhập chuỗi cần kiểm tra:");
+
+    function hamkiemtra() {
+        let num = parseInt(nhapchuoi.length / 2);
+        for (let i = 0; i < num; i++) {
+            if (nhapchuoi[i] === nhapchuoi[nhapchuoi.length - i - 1]) {
+                return true;
+            } else {
+                return false;
+            }
+            if (i >= nhapchuoi.length / 2)
+                break;
+        }
+
+
+    }
+
+    let kq = hamkiemtra(nhapchuoi);
+    alert(kq);
+</script>
+</body>
+</html>

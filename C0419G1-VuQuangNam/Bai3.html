@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>
+Nhập giá trị: <input type="number" id="nhapso"/>
+<input type="button" onclick="ham()" value="KQ" value="KQ"><br/>
+Kết quả giai thừa: <span id="result1"></span>
+<script>
+    function ham() {
+        let Tong = 1;
+
+        let i = document.getElementById("nhapso").value;
+        for (let j = 1; j <= i; j++) {
+            Tong = Tong * j;
+        }
+        document.getElementById("result1").innerHTML = Tong;
+    }
+</script>
+</body>
+</html>

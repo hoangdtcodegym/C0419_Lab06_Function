@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="main()">
+<script>
+    function nhap() {
+        x = prompt(" nhập vào 1 kí tự");
+        return x;
+    }
+
+    function kiemTra(x) {
+        return parseInt(x);
+
+    }
+
+    function main() {
+        let x = nhap();
+        let kt = kiemTra(x);
+        hienthi(kt);
+    }
+
+    function hienthi(check) {
+        if (check) {
+            alert("là số");
+        } else alert(" không phải số")
+    }
+</script>
+</body>
+</html>

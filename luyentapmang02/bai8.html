@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="input" type="number"><br>
+<button onclick="layGiatri()">nhập vào 1 mảng</button>
+<br>
+<button onclick="main()"> đổi chỗ</button>
+<script>
+    let mang=[];
+    function layGiatri() {
+        x = parseInt(document.getElementById("input").value);
+       mang.push(x);
+        console.log(mang);
+        return mang;
+    }
+
+    function doiCho(mangCu) {
+        let mangMoi = [];
+        for (i = mang.length-1; i >=0; i--) {
+            mangMoi.push(mang[i]);
+        }
+        return mangMoi;
+    }
+
+    function hienThi(xuat) {
+        alert(xuat);
+    }
+
+    function main() {
+        let doi = doiCho(mang);
+        console.log(doi);
+        hienThi(doi);
+    }
+</script>
+</body>
+</html>

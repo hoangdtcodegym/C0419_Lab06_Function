@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="tinh()">tinh</button>
+<p id="hienthi"></p>
+<script>
+
+    function f(a,b) {
+        if(a<=b){
+            let tong=a+b;
+            return tong;
+        }
+    }
+    function tinh() {
+        let A=parseFloat(prompt("moi nhap so thu 1: "));
+        let B=parseFloat(prompt("moi nhap so thu 1: "));
+        if (A>B){
+            alert("so "+A+" lon hon "+B+" moi nhap lai");
+        }else
+        {
+            document.getElementById("hienthi").innerHTML=f(A,B);
+        }
+
+    }
+</script>
+</body>
+</html>

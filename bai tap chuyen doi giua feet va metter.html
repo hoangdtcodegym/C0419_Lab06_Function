@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="nhap">
+<select id="from">
+    <option value="1">feet</option>
+    <option value="0.305">met</option>
+</select>
+<select id="to">
+    <option value="1">feet</option>
+    <option value="0.305">met</option>
+</select>
+<button onclick="chuyen()">chuyen doi</button>
+<p id="hienthi"></p>
+<script>
+    function convert(a) {
+            let fromcr = document.getElementById("from").value;
+            let tocr = document.getElementById("to").value;
+            let KQ = (a * tocr) / fromcr;
+            return KQ;
+    }
+    function chuyen() {
+        let A=parseFloat(document.getElementById("nhap").value);
+        if(A<0){
+            alert("nhap chua dung, moi nhap lai");
+        }else{
+        document.getElementById("hienthi").innerHTML =convert(A);
+        }
+    }
+</script>
+</body>
+</html>

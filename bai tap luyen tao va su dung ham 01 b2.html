@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="nhap">
+<button onclick="tangthem()">Tang Them</button>
+<p id="hienthi"></p>
+<script>
+    function tang(a) {
+        a++;
+        return a;
+        }
+    function tangthem() {
+        let A=parseFloat(document.getElementById("nhap").value);
+        tang(A);
+        document.getElementById("hienthi").innerHTML=tang(A);
+    }
+</script>
+</body>
+</html>

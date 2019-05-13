@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="nhap">
+<button onclick="tinh()">Tinh</button>
+<p id="hienthi"></p>
+<script>
+    function f(a) {
+        let b=1;
+        for(let i=1;i<=a;i++){
+            b=b*i;
+        }return b;
+    }
+    function tinh() {
+        let A=parseFloat(document.getElementById("nhap").value);
+        document.getElementById("hienthi").innerHTML="giai thua cua: "+A+" la: "+f(A);
+    }
+</script>
+</body>
+</html>

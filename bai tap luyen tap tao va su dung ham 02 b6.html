@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Kiem tra so nguyen duong:</h3>
+<input type="number" id="nhap" placeholder="an enter de kiem tra" onchange="sosanh()">
+<p id="hienthi"></p>
+<script>
+    function f(a) {
+        let b= false;
+        if(a>0&&a%1==0){
+            b=true;
+            return b;
+        }
+    }
+    function sosanh() {
+        let A=parseFloat(document.getElementById("nhap").value);
+        if(f(A)){
+            document.getElementById("hienthi").innerHTML="so "+A+" la so nguyen duong";
+        }else{
+            document.getElementById("hienthi").innerHTML="so "+A+" khong phai so nguyen duong";
+        }
+    }
+</script>
+</body>
+</html>

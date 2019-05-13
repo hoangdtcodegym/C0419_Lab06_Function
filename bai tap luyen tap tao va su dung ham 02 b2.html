@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Moi nhap ban kinh hinh tron:
+<br>
+<input type="number" id="nhap" oninput="tinh()">
+<p id="hienthi"></p>
+<p id="hienthi1"></p>
+<script>
+    function chuvi(a) {
+        a=2*3.14*a;
+        return a;
+    }
+    function dientich(b) {
+        b=3.14*b*b;
+        return b;
+    }
+    function tinh() {
+        let A=parseFloat(document.getElementById("nhap").value);
+        if (A>0){
+        document.getElementById("hienthi").innerHTML="chu vi hinh tron la: "+chuvi(A);
+        document.getElementById("hienthi1").innerHTML="dien tich hinh tron la: "+dientich(A);
+    }else{
+            alert("khong ton tai hinh tron co ban kinh la: "+A);
+        }
+    }
+</script>
+</body>
+</html>

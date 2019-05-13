@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let A = prompt("moi nhap ten: ");
+    function f(a) {
+        let star = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let starName = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        for (let i = 0; i < star.length; i++) {
+            if (a == star[i]) {
+                return starName[i];
+            }
+        }return "khong trung ten ngoi sao nao";
+    }
+    alert(f(A));
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyen doi feet va meters</title>
+</head>
+<body>
+<form>
+    Enter number: <input id="number">
+   <select id = from>
+       <option value="3.279">feet</option>
+       <option value="1">meters</option>
+   </select>
+    <select id = to>
+        <option value="1">meters</option>
+        <option value="3.279">feet</option>
+    </select>
+    <input type="button" id="result" onclick="kiemtra()" value="Convert">
+    <script>
+        function kiemtra() {
+            let From = parseFloat(document.getElementById('from').value);
+            let To = parseFloat(document.getElementById('to').value);
+            let Number = parseFloat(document.getElementById("number").value);
+            let Result = Number*To/From;
+            alert( "Ket qua la " + Result);
+        }
+    </script>
+</form>
+</body>
+</html>

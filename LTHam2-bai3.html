@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giai thừa</title>
+</head>
+<p>Nhập vào số cần tính giai thừa</p>
+<input type="number" id="input" oninput="giaithua(this.value)"/>
+<br><br><br>
+<p>Giai thừa của số trên =</p>
+<p id="result"></p>
+<body>
+            <script>
+
+                function giaithua(x) {
+                    let total = 1;
+                    for (i = 1; i <= x; i++) {
+                        total = total * i;
+                    }
+                    document.getElementById("result").innerHTML = total;
+                }
+
+            </script>
+</body>
+</html>

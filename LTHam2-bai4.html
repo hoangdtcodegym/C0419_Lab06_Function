@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check ký tự số</title>
+</head>
+<style>
+    .nd {
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="nd">
+    <p>Enter value here</p>
+    <input type="text" id="input" placeholder="Enter value here"
+    oninput="checkNumbs(this.value)"/>
+    <br><br><br>
+    <p>is a number ?</p>
+    <p id="result"></p>
+</div>
+<script>
+    function checkNumbs(x) {
+        x = document.getElementById("input").value;
+        result = false;
+        if (isNaN(x) === true) {
+            result = false;
+        } else {
+            result = true;
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</body>
+</html>

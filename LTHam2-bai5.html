@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị số nguyên có giá trị nhỏ nhất</title>
+</head>
+<style>
+    .nd {
+        text-align: center;
+    }
+    p {
+        font-size: xx-large;
+    }
+
+</style>
+
+<div class="nd">
+    <p>Nhập vào các số nguyên bất kỳ</p>
+    (Lưu ý : các số được ngăn cách bởi dấu ",")<br>
+    <input type="text" id="input" placeholder="Enter values here"/>
+    <br><br><br>
+    min Value in Array =<p id="result"></p>
+</div>
+
+<body>
+            <script>
+                    let arr = (document.getElementById("input").value).split(",");
+                    for (let i in arr) {
+                        arr[i] = Math.round(Number(arr[i]));
+                    }
+                    let min = minValue(arr);
+                    document.getElementById("result").innerHTML = min;
+
+                function minValue(arr) {
+                    arr = (document.getElementById("input").value).split(",");
+                    result = "";
+                    for (let i in arr) {
+                        arr[i] = Math.round(Number(arr[i]));
+                    }
+                    mV = Math.min.apply(Math,arr);
+                    return mV;
+
+                }
+
+            </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai5</title>
+</head>
+<body>
+            <script>
+                let input = prompt("Enter star's name");
+                    let stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+                    let gStars = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+                function searchStars(str) {
+                    for (let i in stars) {
+                        if (str === stars[i]) {
+                        return gStars[i];
+                        }
+                    }
+                    return "not found!";
+                }
+                     let result = searchStars(input);
+                        alert(result);
+
+            </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng quản lý sản phẩm sử dụng hàm</title>
+</head>
+<style>
+    .nd {
+        text-align: left;
+    }
+    p {
+        font-size: x-large;
+    }
+    #input {
+        text-align: center;
+
+    }
+    #add {
+        font-size: large;
+        background-color: green;
+    }
+    input {
+        background-color: orange;
+        font-size: large;
+    }
+</style>
+<div class="nd">
+    <p>Nhập vào thông tin sản phẩm</p>
+    <input type="text" id="input" placeholder="Thông tin sản phẩm"/>
+    <br><br>
+    <input type="button" id="add" value="Thêm" onclick="add(this.value)"/>
+    <br><br><br><br>
+    <form action="javascript:void(0);" id="save">
+    <input type="text" placeholder="Sản phẩm đang được edit" id="edit"/>
+    <br><br>
+    <input type="submit" value="Lưu"/>
+    </form>
+    <br><br><br>
+    <p id="result"></p>
+</div>
+<body style="background-color: wheat">
+            <script>
+               let list = [];
+               let stt = [];
+               let buttons =[];
+               displayList(stt,list,buttons);
+
+               function displayList() {
+                   let tab = "<table style='text-align:center' border='1' cellpadding='3' cellspacing='1' width='500'>";
+                   tab += "<tr>";
+                   tab +=
+                       "<td>" + "STT" + "</td>"
+                       +
+                       "<td>" + "Tên sản phẩm" + "</td>"
+                       +
+                       "<td>" + "Sửa / Xoá" + "</td>";
+                   tab += "</tr>";
+                   for (let i=0;i<list.length;i++) {
+                       buttons =
+                           "<input type='button' id="+ i +" value='Sửa' onclick='edit(this.id)'>"
+                           + "&emsp;" +
+                           "<input type='button' id="+ i +" value='Xoá' onclick='del(this.id)'>";
+                       stt = Number(i)+1;
+
+                       tab += "<tr>";
+                       tab +=
+                           "<td>" + stt + "</td>"
+                           +
+                           "<td>" + list[i] + "</td>"
+                           +
+                           "<td>" + buttons + "</td>";
+                       tab += "</tr>";
+                   } tab += "</table>";
+                   document.getElementById("result").innerHTML = tab;
+               }
+
+               function add(x) {
+                   x = document.getElementById("input").value;
+                   list.push(x);
+                   displayList();
+                   document.getElementById("input").value = "";
+               }
+
+               function edit(x) {
+                   let edit = document.getElementById("edit");
+                   edit.value = list[x];
+                   document.getElementById("save").onsubmit = function () {
+                       let product = edit.value;
+                       list.splice(x,1,product.trim());
+                       displayList();
+                   }
+               }
+
+               function del(x) {
+                   list.splice(x,1);
+                   displayList();
+               }
+            </script>
+</body>
+</html>

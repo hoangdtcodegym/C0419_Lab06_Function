@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyen doi giua feet va meters</title>
+</head>
+<body>
+<h2>Chuyển từ Foot sang Meter</h2>
+<input id="footInput" type="text">
+<button onclick="clickFootToMeterButton()"> Chuyển đổi</button>
+<p id="result1"></p>
+<h2>Chuyển từ Meter sang Foot</h2>
+<input id="meterInput" type="text">
+<button onclick="clickMeterToFootButton()"> Chuyển đổi</button>
+<p id="result2"></p>
+<script>
+    let footInput;
+    let meterInput;
+
+    function footToMeter(foot) {
+        return 0.305 * foot;
+    }
+
+    function meterToFoot(meter) {
+        return 3.279 * meter;
+    }
+
+    function clickFootToMeterButton() {
+        footInput = document.getElementById("footInput").value;
+        document.getElementById("result1").innerHTML = footToMeter(footInput);
+    }
+
+    function clickMeterToFootButton() {
+        meterInput = document.getElementById("meterInput").value;
+        document.getElementById("result2").innerHTML = meterToFoot(meterInput);
+    }
+</script>
+
+</body>
+</html>

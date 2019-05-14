@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 5</title>
+</head>
+<body>
+<script>
+    let starInput=prompt("Nhập tên ngôi sao: ");
+    let starArray=["Polaris","Aldebaran","Deneb","Vega","Altair","Dubhe","Regulus"];
+    let starGroupArray=["Ursa","Minor","Tarurus","Cygnus","Lyra","Aquila","Ursa","Major","Leo"];
+    findStarGroup(starInput);
+    function findStarGroup(starInput){
+        if(starArray.indexOf(starInput)<0) alert("Không tìm thấy ");
+        else
+        alert(starGroupArray[starArray.indexOf(starInput)]);
+    }
+</script>
+
+</body>
+</html>

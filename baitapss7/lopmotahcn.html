@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lop HCN</title>
+</head>
+<body>
+<canvas id="canvas" width="1500" height="800"></canvas>
+<script>
+    let Retangcle = function (width,height) {
+        this.width = width;
+        this.height = height;
+        this.setWidth = function (width){
+            this.width = width;
+        };
+        this.setHeight = function (height){
+            this.height = height;
+        };
+      this.Chuvi = function () {
+          return (this.width + this.height)*2;
+      };
+      this.Dientich = function () {
+          return this.width * this.height;
+      };
+    };
+let rec = new Retangcle(30,20);
+alert("Chu vi là: " + rec.Chuvi() + ' Dien tich là: ' + rec.Dientich());
+
+</script>
+</body>
+</html>

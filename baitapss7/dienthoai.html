@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lop dien thoai</title>
+
+</head>
+<body>
+<script>
+    function Mobile(name, battery, mssage) {
+        this.name = name;
+        this.battery = 100;
+        this.inbox = [];
+        this.outbox = [];
+        this.status = true;
+        this.massage = document.getElementById("mess1");
+
+        this.checkStatus = function () {
+            if (this.status == true){
+                console.log(" mobile on");
+            } else {
+                console.log('mobile off');
+            }
+        };
+        this.Turnoff = function () {
+            this.status = false;
+        };
+        this.Turnon = function () {
+            this.status = true;
+        };
+        this.ChargeBattery = function () {
+            if (this.battery < 100){
+                this.battery++;
+            }
+        };
+        this.WriteMassage = function (mess) {
+            this.massage = mess;
+        };
+        this.sentMassage = function (phone) {
+            phone.inbox.push(this.massage);
+            this.outbox.push(this.massage);
+        };
+        this.readInbox = function () {
+            return this.inbox;
+        };
+    }
+    let Nokia = new Mobile('Nokia');
+    let Iphone = new Mobile('Iphone');
+    Nokia.WriteMassage('Hello Iphone');
+    Nokia.sentMassage(Iphone);
+    Nokia.battery;
+    Iphone.readInbox();
+    console.log('SMS go: ' + Iphone.readInbox(Iphone));
+    console.log('trang thai may: ' + Nokia.status);
+</script>
+</body>
+</html>

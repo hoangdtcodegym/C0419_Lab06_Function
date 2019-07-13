@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPrime() {
+        for (kt = 2; kt < x; kt++) {
+            if (x % kt === 0) {
+                return false
+            }
+        }
+        return true;
+    }
+
+    function sinhSonguyento(n) {
+        let mang = [];
+        x = 2;
+        for (count = 0; count < n; x++) {
+            if (isPrime(x)) {
+                mang.push(x);
+                count++;
+            }
+        }
+        return mang;
+
+    }
+
+    function nhap() {
+        x = parseInt(prompt(" nhập vào số lượng : "));
+        return x;
+    }
+
+    function main() {
+        let n = nhap();
+        let soNT = sinhSonguyento(n);
+        alert(soNT);
+    }
+
+    main();
+</script>
+</body>
+</html>

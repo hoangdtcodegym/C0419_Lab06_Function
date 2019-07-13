@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bai9</title>
+</head>
+<body>
+<input type="number" id="dauVao" onkeydown="Enter(event)">
+<button onclick="kiemTra()">Tim</button>
+<p id="output"></p>
+<script>
+  var A = [];
+
+  function Enter(event) {
+    if (event.keyCode == 13) {
+      let a = parseFloat(document.getElementById("dauVao").value);
+      A.push(a);
+      document.getElementById("dauVao").value = "";
+    }
+    document.getElementById("output").innerHTML = "Mảng: " + A;
+  }
+
+  function kiemTra() {
+    let nhap = prompt("Nhap: ");
+    let dem = 0;
+    for (let i = 0; i < A.length; i++) {
+      if (nhap == A[i]) {
+        dem++;
+      }
+    }
+    if (dem > 0) {
+      alert(dem);
+    } else {
+      alert("-1");
+    }
+  }
+</script>
+</body>
+</html>

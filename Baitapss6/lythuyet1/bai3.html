@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>
+<script>
+    function check(a,b) {
+        if (a>b){
+            return false;
+        } else {
+            return a+b;
+        }
+    }
+    let numbera = parseInt(prompt("Nhập vào số đầu tiên:"));
+    let numberb = parseInt(prompt("Nhập vào số thứ 2"));
+    if (check(numbera,numberb)){
+         alert("tổng của hai số là: " + check(numbera,numberb));
+    } else {
+        alert("số " + numbera + " lớn hơn " + numberb);
+    }
+
+</script>
+</body>
+</html>

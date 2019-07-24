@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Den Pin</title>
+</head>
+<body>
+<input type="button" onclick="turnOn()" value="TurnOn">
+<input type="button" onclick="charge()" value="Charge">
+<div id = 'kq'></div>
+<div id = 'kq2'></div>
+
+<script>
+    function Battery() {
+        this.setEnergy = function (energy) {
+            this.energy  = energy;
+        };
+        this.getEnergy = function () {
+            return this.energy;
+        };
+        this.DecreaseEnergy = function () {
+            if (this.energy > 0){
+                this.energy --;
+            }
+        };
+        this.ChargeEnergy = function () {
+                this.energy++;
+                console.log(this.energy);
+        };
+    }
+    function Flash() {
+        this.setBattery = function (battery) {
+            this.batterty = battery;
+        };
+        this.getBatteryInfo = function () {
+            return this.batterty.getEnergy();
+        };
+        this.light = function () {
+            if(this.status){
+                document.getElementById('kq2').innerHTML = "Lighting";
+            } else {
+                document.getElementById('kq2').innerHTML = "Not lighting";
+            }
+        };
+        this.turnOn = function () {
+            this.status = true;
+        };
+        this.turnOff = function () {
+            this.status = false;
+        };
+    }
+    let battery = new Battery();
+    battery.setEnergy(100);
+    let flashLamp = new Flash();
+    flashLamp.setBattery(battery);
+    function turnOn() {
+        flashLamp.turnOn();
+        flashLamp.light();
+        battery.DecreaseEnergy();
+        document.getElementById('kq').innerHTML = "battery info: " + flashLamp.getBatteryInfo();
+    }
+    function charge() {
+        flashLamp.turnOff();
+        flashLamp.light();
+
+        let changeEnergy = setInterval(function () {
+            if (flashLamp.getBatteryInfo() < 100) {
+                battery.ChargeEnergy();
+                document.getElementById('kq').innerHTML = "battery info: " + flashLamp.getBatteryInfo();
+            }else {
+                clearInterval(changeEnergy);
+          }
+        }, 400);
+
+    }
+</script>
+</body>
+</html>

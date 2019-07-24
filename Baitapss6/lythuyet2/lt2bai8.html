@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 8</title>
+</head>
+<body>
+<form>
+    Nhập vào: <input id="nhap" value="">
+    <input type="button" id="add" value="Add" onclick="themvao()">
+    <input type="button" id="convert" value="Convert" onclick="hienthi()">
+    <p> Giá trị của mảng sau khi đảo ngược là:</p>
+    <div id="result"></div>
+    <script>
+        let x = 0;
+        let array = Array();
+        function themvao() {
+            array[x] = document.getElementById("nhap").value;
+            x++;
+            document.getElementById("nhap").value = "";
+            }
+        function hienthi() {
+            let firt = 0;
+            let last = array.length - 1;
+            while (firt < last) {
+                let b = array[firt];
+                array[firt] = array[last];
+                array[last] = b;
+                firt++;
+                last--;
+            }
+           document.getElementById("result").innerHTML = array;
+        }
+
+    </script>
+
+</form>
+</body>
+</html>
